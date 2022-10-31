@@ -1,0 +1,25 @@
+{% extends "layouts/user.html" %}<!---->
+{% load crispy_forms_tags %} {% block title %} settings {% endblock title %}<!---->
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card in-card mb@l">
+        <div class="card-body">
+          <div class="change-password-box">
+            <h3>Change Password</h3>
+            <form action="" method="post" class="mt-4">
+              {% csrf_token %} {{form|crispy}}
+              <div class="mb-3">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary mt-3">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

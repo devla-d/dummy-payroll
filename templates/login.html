@@ -1,0 +1,69 @@
+{% extends "layouts/home.html" %}<!---->
+{% block title %} Log Into Your Account {% endblock title %}<!---->
+{% block content %}
+<div class="home-page" data-in-height-viewport="expand:true">
+  <div class="row">
+    <div class="col-lg-6 bn-image" data-in-height-viewport></div>
+    <div class="col-lg-6">
+      <div
+        class="in-flex-center in-grid in-flex-middle"
+        data-in-height-viewport
+      >
+        <div class="bn-content auth">
+          <a class="in-logo" href="/">
+            <img
+              class="in-offset-top-10"
+              src="/assets/images/in-logo.svg"
+              alt="logo"
+            />
+          </a>
+          <p class="in-text-lead in-margin-top in-margin-remove-bottom">
+            Log into your account
+          </p>
+
+          <p class="in-text-small in-margin-remove-top in-margin-medium-bottom">
+            Don't have an account?
+            <a href="{% url 'rigister' %}">Register here</a>
+          </p>
+
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_username" class="form-label"
+                >{{ form.username.label }}</label
+              >
+              {{ form.username }} {% if form.username.errors %}<!---->
+              {% for error in form.username.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_password" class="form-label"
+                >{{ form.password.label }}</label
+              >
+              {{ form.password }} {% if form.password.errors %}<!---->
+              {% for error in form.password.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">submit</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="bn-txt text-center">
+            <h5>Need help ? <a href="#">contact support</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "layouts/home.html" %}<!---->
+{% block title %} Manage your monthly earnings {% endblock title %}<!---->
+{% block content %}
+
+<div class="home-page" data-in-height-viewport="expand:true">
+  <div class="row">
+    <div class="col-lg-6 bn-image" data-in-height-viewport></div>
+    <div class="col-lg-6 in-flex in-flex-middle" data-in-height-viewport>
+      <div class="in-flex-center in-grid">
+        <div class="bn-content text-center">
+          <div class="bn-tx">
+            <h1>Payroll & HR Solution</h1>
+            <h3>Recieve your monthly salary with ease</h3>
+          </div>
+          <div class="bn-button">
+            <ul class="unstyle">
+              <li>
+                <a href="{% url 'rigister' %}" class="btn btn-register"
+                  >Register</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+              </li>
+            </ul>
+          </div>
+          <div class="bn-txt text-center">
+            <h5>Need help ? <a href="#">contact support</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

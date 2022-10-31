@@ -1,0 +1,122 @@
+{% extends "layouts/home.html" %}<!---->
+{% block title %} Create A New Account {% endblock title %}<!---->
+{% block style %}
+
+<style>
+  .invalid {
+    color: red !important;
+    text-align: left !important;
+    margin-top: 10px !important;
+  }
+</style>
+{% endblock style %} {% block content %}
+<div class="home-page" data-in-height-viewport="expand:true">
+  <div class="row">
+    <div class="col-lg-6 bn-image" data-in-height-viewport></div>
+    <div class="col-lg-6">
+      <div
+        class="in-flex-center in-grid in-flex-middle"
+        data-in-height-viewport
+      >
+        <div class="bn-content auth">
+          <a class="in-logo" href="/">
+            <img
+              class="in-offset-top-10"
+              src="/assets/images/in-logo.svg"
+              alt="logo"
+            />
+          </a>
+          <p class="in-text-lead in-margin-top in-margin-remove-bottom">
+            Create an account
+          </p>
+
+          <p class="in-text-small in-margin-remove-top in-margin-medium-bottom">
+            Already have an account?
+            <a href="{% url 'login' %}">Sign in here</a>
+          </p>
+
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_fullname" class="form-label"
+                >{{ form.fullname.label }}</label
+              >
+              {{ form.fullname }} {% if form.fullname.errors %}<!---->
+              {% for error in form.fullname.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_email" class="form-label"
+                >{{ form.email.label }}</label
+              >
+              {{ form.email }} {% if form.email.errors %}<!---->
+              {% for error in form.email.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_username" class="form-label"
+                >{{ form.username.label }}</label
+              >
+              {{ form.username }} {% if form.username.errors %}<!---->
+              {% for error in form.username.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_designation" class="form-label"
+                >{{ form.designation.label }}</label
+              >
+              {{ form.designation }} {% if form.designation.errors %}<!---->
+              {% for error in form.designation.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_password1" class="form-label"
+                >{{ form.password1.label }}</label
+              >
+              {{ form.password1 }} {% if form.password1.errors %}<!---->
+              {% for error in form.password1.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="id_password2" class="form-label"
+                >{{ form.password2.label }}</label
+              >
+              {{ form.password2 }} {% if form.password2.errors %}<!---->
+              {% for error in form.password2.errors %}
+
+              <p class="invalid">{{error}}</p>
+              {% endfor %} {% endif %}
+            </div>
+
+            <div class="mt-4 mb-3">
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">
+                  Submit <i class="fas fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="bn-txt text-center mt-4">
+            <h5>Need help ? <a href="#">contact support</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

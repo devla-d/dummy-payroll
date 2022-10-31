@@ -1,0 +1,12 @@
+{
+    "name": "templates",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "scss": "node-sass --watch assets/scss -o assets/css"
+    },
+    "dependencies": {
+        "node-sass": "^7.0.1"
+    }
+}

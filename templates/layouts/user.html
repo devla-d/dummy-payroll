@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock title %} | {{domain}}</title>
+    <link
+      rel="stylesheet"
+      href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/toastr.min.css" />
+    <script
+      src="https://kit.fontawesome.com/27c43198e8.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .align-item-center {
+        align-items: center !important;
+      }
+    </style>
+    {% block style %} {% endblock style %}
+  </head>
+
+  <body>
+    {% if messages %} {% for msg in messages %}
+    <div style="display: none" class="messages" data-msg="{{ msg }}"></div>
+    {% endfor %} {% endif %}
+    <div class="dashbaord" data-in-height-viewport="expand:true">
+      <header id="dashbaord-header">
+        <nav>
+          <div class="nav-logo">
+            <img src="/assets/images/in-logo.svg" alt="logo" />
+          </div>
+          <div class="main-menu">
+            <ul>
+              <li><a href="{% url 'dashboard' %}">Dashbaord</a></li>
+              <li><a href="{% url 'history' %}">History</a></li>
+              <li><a href="{% url 'profile' %}">Profile</a></li>
+              <li><a href="{% url 'settings' %}">Settings</a></li>
+            </ul>
+          </div>
+          <div class="account-menu">
+            <ul>
+              <li class="hiddensm">
+                <a href="{% url 'logout' %}" class="text-danger">
+                  <span class="fas fa-sign-out-alt"></span>
+                  <span>logout</span>
+                </a>
+              </li>
+              <li class="hiddenlg">
+                <a href="#" id="togglesidebar">
+                  <span id="togglesidebaricon" class="fas fa-bars"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div id="sidebar">
+        <ul>
+          <li><a href="{% url 'dashboard' %}">Dashbaord</a></li>
+          <li><a href="{% url 'history' %}">History</a></li>
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'settings' %}">Settings</a></li>
+        </ul>
+      </div>
+      <div class="wrapper">{% block content %} {% endblock content %}</div>
+
+      <div class="dashfooter">
+        <p>Copywright@{{domain}}</p>
+      </div>
+    </div>
+
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+
+    <script src="/assets/js/toastr.min.js"></script>
+    {% if messages %}
+    <script src="/assets/js/toastr-init.js"></script>
+    {% endif %}
+    <script src="/assets/js/circle-progress.min.js"></script>
+    <script src="/assets/js/circle-progress-init.js"></script>
+  </body>
+</html>

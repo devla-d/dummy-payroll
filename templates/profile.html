@@ -1,0 +1,111 @@
+{% extends "layouts/user.html" %}<!---->
+{% block title %} History {% endblock title %}<!---->
+{% block style %}
+<style>
+  .img-box {
+    position: relative;
+  }
+  .img-box .editOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-box:hover .editOverlay {
+    display: flex;
+  }
+  .img-box .editOverlay i {
+    color: #fff;
+    font-size: 20px;
+  }
+</style>
+{% endblock style %}<!--=-->
+{% block content %}
+<div class="container">
+  <div
+    class="row justify-content-center align-item-center"
+    style="height: 400px"
+  >
+    <div class="col-md-12">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card in-card mb@l">
+            <div class="card-body">
+              <div class="img-box">
+                <!-- <img src="/assets/images/in--image.jpg" alt="" />
+                <div class="editOverlay">
+                  <i class="fa-solid fa-pencil"></i>
+                </div> -->
+              </div>
+              <div class="img-tex-box">
+                <h3 class="text-truncate">{{user.fullname}}</h3>
+                <p class="text-truncate">{{user.email}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 mb-3">
+          <form action="" class="mb-3">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="full_name" class="form-label">Full Name</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="full_name"
+                  placeholder=""
+                  value="{{user.fullname}}"
+                  disabled="true"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder=""
+                  value="{{user.email}}"
+                  disabled="true"
+                />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="designation" class="form-label">Designation</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="designation"
+                  placeholder=""
+                  value="{{user.designation}}"
+                  disabled="true"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="Employee_ID" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Employee_ID"
+                  placeholder=""
+                  value="{{user.username}}"
+                  disabled="true"
+                />
+              </div>
+              <div class="col-md-12 mb-5">
+                <div class="d-grid gap-2">
+                  <!-- <button class="btn btn-primary mt-3">Update</button> -->
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
